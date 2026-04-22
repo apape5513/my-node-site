@@ -1,22 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 10px 20px;
+        }
+
+        /* Hamburger icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            display: block;
+        }
+
+        /* Nav links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: whitesmoke;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #333;
+                flex-direction: column;
+                width: 200px;
+                display: none;
+                padding: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <nav>
+    <nav class="navbar">
+        <!-- Hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-        <a href="/">Home</a> |
-        <a href="/about">About</a> |
-        <a href="/contact">Contact</a>
-
+        <!-- Links -->
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Artists</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
 
     <hr>
 
-    <h1>About Me</h1>
-    <p>This page tells visitors about me</p>
+    <h1>Artists</h1>
+    <a href="https://open.spotify.com/artist/5274obTQJjzjyycRyJlfml" target="_blank">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/e9b4d593044219.5e5ad3a4ccaa0.png"
+            alt="Whitechapel" title="Whitechapel" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/artist/5t28BP42x2axFnqOOMg3CM" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.Rp9d6m_8vtXvDEURAtfArQHaEK?w=330&h=185&c=7&r=0&o=5&pid=1.7" alt="FFDP"
+            title="Five Finger Death Punch" width="300" height="200">
+    </a>
+    <a href="https://open.spotify.com/artist/3TBTcHpZ3aV1g8rk8i1zb5" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.tDOFMEkbgSk3rbfqjAPgBQHaHa?w=187&h=187&c=7&r=0&o=5&pid=1.7"
+            alt="Baby Bugs" title="Baby Bugs" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/artist/56MVdvfH0k4FvVBUMFxuyl" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.pQPGBT9q79D4wb-JSxsHEAAAAA?w=165&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Gothcandy" title="Gothcandy" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/artist/6o2D1YBpFJDDaMwZYGyW3T" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.yvNSgmj8sCWA-ysVy5OGJQHaHa?w=169&h=180&c=7&r=0&o=5&pid=1.7" alt="Vana"
+            title="Vana" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/artist/5FjQVp1Lb0kltmwIuu5kfj" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.HB_7dnrRMsNJnzYdpK27sAHaE8?w=280&h=187&c=7&r=0&o=7&pid=1.7&rm=3"
+            alt="Dayseeker" title="Dayseeker" width="200" height="200">
+    </a>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+
 </body>
+
 </html>

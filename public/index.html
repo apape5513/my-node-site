@@ -1,22 +1,188 @@
+<!-- We used the viewport tag in which we implemented to allow the website to adapt to a devices size which was implemented through the html skeleton added at the beggining -->
+<!--The fonts I used are UnifrakturMaguntia & Grenze because I beleive they complemented each other quite well by not looking out of place when put together. I used a bold font weight as it made the headers stick out and be clear and visible.
+I made the typograph responsive through using rem where the @media applies at anything below 600 pixles. I then optimized my images by using jpg as it is used best for photos, resizing and making them responsive through the use of lazy loading.
+To ensure responsive design I made sure the page ajusts to the size of the screen and made sure to make all items ajustable based on broowser size which can be seen  throughout the site as the size is ajusted.-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 10px 20px;
+        }
+
+        /* Hamburger icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            display: block;
+        }
+
+        /* Nav links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h2 {
+            color: whitesmoke;
+        }
+
+        h1 {
+            color: whitesmoke;
+        }
+
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #333;
+                flex-direction: column;
+                width: 200px;
+                display: none;
+                padding: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <nav>
+    <nav class="navbar">
+        <!-- Hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-        <a href="/">Home</a> |
-        <a href="/about">About</a> |
-        <a href="/contact">Contact</a>
-
+        <!-- Links -->
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Artists</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
 
     <hr>
 
-    <h1>Welcome to my website</h1>
-    <p>Thiis is my homepage</p>
+    <h1>Welcome to Vibify</h1>
+    <h2>Metal</h2>>
+
+    <a href="https://open.spotify.com/album/7lnkxd7w0YcE18CZ6COEJj" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.0LsZ91w8EJG-otyOF8EBxAHaHa?w=177&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to Kin Album" loading="lazy" title="Kin" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/4ldi4wEpZSlSw9DGE2Sx85" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.tJOTmR3L8c5bKhe67oAeTQHaHa?w=183&h=183&c=7&r=0&o=5&pid=1.7"
+            alt="Go to Our Endless War" loading="lazy" title="Our Endless War" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/4UiURCeJj7RgC3MVel2zOt" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.ZBshPcBqUgOagQvoAImUDQAAAA?w=200&h=200&c=10&o=6&pid=genserp&rm=2"
+            alt="Go to Way of the Fist" loading="lazy" title="The Way Of The Fist" width="200" height="200">
+    </a>
+    <h2>Metalcore</h2>
+    <a href="https://open.spotify.com/album/63AsIG0ig2p4mWx42ySWIj" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.iqkQwSF4ELC30dvu7eyVZQHaHa?w=176&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to The Concrete Confessional Album" loading="lazy" title="The Concrete Confessional" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/77A4FiNquztv6LRjEM0j4A" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.rPMqb_d83RhHW_a45JJ8QQHaHa?w=180&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to What it Means to be Defeated" loading="lazy" title="What it Means to be Defeated" width="200" height="200">
+    </a>
+    <h2>Deathcore</h2>
+    <a href="https://open.spotify.com/album/7lnkxd7w0YcE18CZ6COEJj" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.mh9ANU7aWrzMWqKeo4_dAAHaHa?w=194&h=194&c=7&r=0&o=5&pid=1.7"
+            alt="Go to Hymns in Dissonace Album" loading="lazy" title="Hymns in Dissonace" width="200" height="200">
+    </a>
+    <h2>Rock</h2>
+    <a href="https://open.spotify.com/album/4ci4hhqEq8o3TjlJWeF8hL" target="_blank">
+        <img src="https://th.bing.com/th?q=Memento+Mori+Flyleaf&w=120&h=120&c=1&rs=1&qlt=70&o=7&cb=1&pid=InlineBlock&rm=3&mkt=en-US&cc=US&setlang=en&adlt=moderate&t=1&mw=247"
+            alt="Go to Memento Mori Album" loading="lazy" title="Memento Mori" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/55tK4Ab7XHTOKkw0xDz3AA" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.vZ1Z98CdF7tmh2Qc04ET-AHaHb?w=193&h=194&c=7&r=0&o=5&pid=1.7"
+            alt="Go to City of Evil Album" loading="lazy" title="City of Evil" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/1namjaJZ23ozXXB7X2d4hy" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.hhCKWK8vL8yUl4H-hYCVlQHaHa?w=164&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to Crossfade Album" loading="lazy" title="Crossfade" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/0dZB8UHYsM7jKmm7ByzAVq" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.bHrlqPonxQdToAuR4u7L6AHaHT?w=174&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to Come What Ever Album" loading="lazy" title="Come What Ever" width="200" height="200">
+    </a>
+    <h2>Other</h2>
+    <a href="https://open.spotify.com/album/71SOQSZ4pKoTkwq86AJUxT" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.rMIWkuoU07lTl7-N3X3fnQHaD4?w=343&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to In My Bones Album" loading="lazy" title="In My Bones" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/6qA7NqB5x2iNjCOuFuHYsV" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.pQPGBT9q79D4wb-JSxsHEAAAAA?w=165&h=180&c=7&r=0&o=5&pid=1.7"
+            alt="Go to Identity Crisis Album" loading="lazy" title="Identity Crisis" width="200" height="200">
+    </a>
+    <a href="https://open.spotify.com/album/56tYrTSCIpzIwjPzmlatw2" target="_blank">
+        <img src="https://tse1.mm.bing.net/th?&id=OVP.cf8znOWpgDfum9cnKzGReQEsEs&w=356&h=200&c=7&pid=1.7&rs=1"
+            alt="Go to Girl Like Me" loading="lazy" title="Girl Like Me" width="200" height="200">
+    </a>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+
 </body>
+
 </html>
