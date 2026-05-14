@@ -27,6 +27,9 @@ To ensure responsive design I made sure the page ajusts to the size of the scree
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             margin: 0;
@@ -99,10 +102,88 @@ To ensure responsive design I made sure the page ajusts to the size of the scree
                 display: flex;
             }
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #music-player {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #song-image {
+            height: 300px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        #song-name {
+            color: white;
+            margin-top: 20px;
+            font-size: 2em;
+        }
+
+        #music-buttons {
+            color: white;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #music-buttons i {
+            color: white;
+            padding: 10px;
+            /* color: red; */
+        }
+        #song-artist{
+            color: white;
+        }
+
+        #slider-song {
+            /* accent-color: red; */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 300px;
+            height: 5px;
+            background: repeating-linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 12px, white 12px, white 24px);
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        #slider-song::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: rgb(255, 255, 255);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
 <body>
+    <!-- <audio controls src="./jingle-bells.mp3"></audio> -->
+    <div id="music-player">
+        <img id="song-image" src="./album-art1.jpg" />
+        <div id="song-name">Song</div>
+        <div id="song-artist">Artist</div>
+
+        <input id="slider-song" type="range">
+
+        <div id="music-buttons">
+            <i id="shuffle-song" class="fa-solid fa-shuffle"></i>
+            <i id="prev-song" class="fa-solid fa-backward-step fa-2x"></i>
+            <i id="playpause-song" class="fa-solid fa-circle-play fa-3x"></i>
+            <i id="next-song" class="fa-solid fa-forward-step fa-2x"></i>
+            <i id="repeat-song" class="fa-solid fa-repeat"></i>
+        </div>
+    </div>
     <nav class="navbar">
         <!-- Hamburger -->
         <div class="hamburger" onclick="toggleMenu()">
@@ -124,7 +205,7 @@ To ensure responsive design I made sure the page ajusts to the size of the scree
     <h1>Welcome to Vibify</h1>
     <h2>Metal</h2>>
 
-    <a href="https://open.spotify.com/album/7lnkxd7w0YcE18CZ6COEJj" target="_blank" >
+    <a href="https://open.spotify.com/album/7lnkxd7w0YcE18CZ6COEJj" target="_blank">
         <img src="https://th.bing.com/th/id/OIP.0LsZ91w8EJG-otyOF8EBxAHaHa?w=177&h=180&c=7&r=0&o=5&pid=1.7"
             alt="Go to Kin Album" loading="lazy" title="Kin" width="200" height="200">
     </a>
@@ -139,11 +220,13 @@ To ensure responsive design I made sure the page ajusts to the size of the scree
     <h2>Metalcore</h2>
     <a href="https://open.spotify.com/album/63AsIG0ig2p4mWx42ySWIj" target="_blank">
         <img src="https://th.bing.com/th/id/OIP.iqkQwSF4ELC30dvu7eyVZQHaHa?w=176&h=180&c=7&r=0&o=5&pid=1.7"
-            alt="Go to The Concrete Confessional Album" loading="lazy" title="The Concrete Confessional" width="200" height="200">
+            alt="Go to The Concrete Confessional Album" loading="lazy" title="The Concrete Confessional" width="200"
+            height="200">
     </a>
     <a href="https://open.spotify.com/album/77A4FiNquztv6LRjEM0j4A" target="_blank">
         <img src="https://th.bing.com/th/id/OIP.rPMqb_d83RhHW_a45JJ8QQHaHa?w=180&h=180&c=7&r=0&o=5&pid=1.7"
-            alt="Go to What it Means to be Defeated" loading="lazy" title="What it Means to be Defeated" width="200" height="200">
+            alt="Go to What it Means to be Defeated" loading="lazy" title="What it Means to be Defeated" width="200"
+            height="200">
     </a>
     <h2>Deathcore</h2>
     <a href="https://open.spotify.com/album/7lnkxd7w0YcE18CZ6COEJj" target="_blank">
@@ -185,6 +268,135 @@ To ensure responsive design I made sure the page ajusts to the size of the scree
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
+        const songImage = document.getElementById("song-image");
+        const songName = document.getElementById("song-name");
+        const songArtist = document.getElementById("song-artist");
+
+        const songSlider = document.getElementById("slider-song");
+
+        const playpauseButton = document.getElementById("playpause-song");
+        const prevSongButton = document.getElementById("prev-song");
+        const nextSongButton = document.getElementById("next-song");
+
+        const songs = [
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Prisoner 666",
+                artist: "Whitechapel",
+                audio: "./Prisoner 666.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Hymns In Dissonance",
+                artist: "Whitechapel",
+                audio: "./Hymns in Dissonance.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Diabolic Slumber",
+                artist: "Whitechapel",
+                audio: "./Diabolic Slumber.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "A Visceral Retch",
+                artist: "Whitechapel",
+                audio: "./A Visceral Retch.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Ex Infernis",
+                artist: "Whitechapel",
+                audio: "./Ex Infernis.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Hate Cult Ritual",
+                artist: "Whitechapel",
+                audio: "./Hate Cult Ritual.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "The Abysmal Gospel",
+                artist: "Whitechapel",
+                audio: "./The Abysmal Gospel.mp3"
+            },
+
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Bedlam",
+                artist: "Whitechapel",
+                audio: "./Bedlam.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Mammoth God",
+                artist: "Whitechapel",
+                audio: "./Mammoth God.mp3"
+            },
+            {
+                image: "https://th.bing.com/th/id/OIP._q30NZNNFsVLBD8vBLvYNAHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+                name: "Nothing Is Coming for Any of Us",
+                artist: "Whitechapel",
+                audio: "./Nothing Is Coming for Any of Us.mp3"
+            },
+        ];
+
+        const audio = document.createElement("audio");
+        let currentSongIndex = 0;
+
+        updateSong();
+
+        prevSongButton.addEventListener("click", function () {
+            if (currentSongIndex == 0) {
+                return;
+            }
+            currentSongIndex--;
+            updateSong();
+        });
+
+        nextSongButton.addEventListener("click", function () {
+            if (currentSongIndex == songs.length - 1) {
+                return;
+            }
+            currentSongIndex++;
+            updateSong();
+        });
+
+        playpauseButton.addEventListener("click", function () {
+            if (!audio.paused) {
+                audio.pause();
+            }
+            else {
+                audio.play();
+            }
+        });
+
+        function updateSong() {
+            const song = songs[currentSongIndex];
+            songImage.src = song.image;
+            songName.innerText = song.name;
+            songArtist.innerText = song.artist;
+
+            audio.src = song.audio;
+            audio.onloadedmetadata = function () {
+                songSlider.value = 0;
+                songSlider.max = audio.duration;
+            };
+        }
+
+        songSlider.addEventListener("change", function () {
+            audio.currentTime = songSlider.value;
+        })
+
+        function moveSlider() {
+            songSlider.value = audio.currentTime;
+        };
+
+        setInterval(moveSlider, 1000);
+
+
+
     </script>
 
 </body>
